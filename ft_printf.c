@@ -20,6 +20,8 @@ static int ft_checkers(const char c, va_list args)
         i += ft_printf_add(va_arg(args, void *));
     else if(c == 'u')
         i += ft_printf_unsigned(va_arg(args, unsigned int));
+    else
+        i += ft_printf_char(c);
     return(i);
 }
 
@@ -30,10 +32,11 @@ int ft_printf(const char *format, ...)
 
     i = 0;
     va_start(args, format);
-
+    if(!format || (*(format) == '%' && *(format + 1) == '\0'))
+        return(-1);
     while (*format)
     {
-        if (*format == '%' && *(format + 1)== '%')
+        if (*format == '%' && *(format + 1) == '%')
         {
               i += ft_printf_char(*format);
               format++;
@@ -45,7 +48,7 @@ int ft_printf(const char *format, ...)
         }
         else
             i += write(1, format, 1);
-        format++;
+        format++;  
     }
     va_end(args);
     return (i);
