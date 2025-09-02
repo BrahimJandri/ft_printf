@@ -1,0 +1,12 @@
+# Object files
+*.o
+
+# Static library
+*.a
+
+# Test executables
+test_printf
+simple_test
+
+# Temporary files
+/tmp/
