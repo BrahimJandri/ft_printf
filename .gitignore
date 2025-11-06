@@ -1,0 +1,22 @@
+# Object files
+*.o
+
+# Libraries
+*.a
+
+# Executables
+a.out
+*.out
+
+# Test binaries
+main
+
+# macOS
+.DS_Store
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
